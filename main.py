@@ -21,8 +21,18 @@ class Question:
 
 def main():
     file = 'questions/test.txt'
-    with open(file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+
+    try:
+        with open(file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print("файла нет")
+        return
+
+
+
+
+    
     qs = parse(lines)
 
     total = len(qs)
